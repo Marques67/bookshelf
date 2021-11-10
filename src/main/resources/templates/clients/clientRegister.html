@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title> BookShelf</title>
+    <!--  -->
+    <!-- IMPORTAÇÕES DO MATERIALIZER -->
+    <!-- SITE: https://materializecss.com/getting-started.html -->
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="stylesheet" href="style/styleCss.css"/>
+
+</head>
+<body>
+<header>
+    <nav class="nav-wrapper grey darken-3">
+        <div class="nav-wrapper grey darken-3">
+            <a href="#" class="brand-logo" style="color: #ffca28;">Cadastro</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/clientLogin" class="amber lighten-1 waves-light btn" style="color: #424242;"><i class="material-icons left">add_circle_outline</i>Login</a></li>
+            </ul>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/" class="amber lighten-1 waves-light btn" style="color: #424242;"><i class="material-icons left">arrow_back</i>Tela inicial</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<div th:each="clientRegister : ${clientRegister}" class="container clientRegister">
+    <h5>Dados do cliente</h5>
+    <div class="row">
+        <p>Name: <span th:text="${clientRegister.name}"></span></p>
+        <p>CPF: <span th:text="${clientRegister.cpf}"></span></p>
+        <p>Password: <span th:text="${clientRegister.passord}"></span></p>
+        <p>Email: <span th:text="${clientRegister.email}"></span></p>
+    </div>
+</div>
+    <th:block th:include="validationMessage"></th:block>
+
+<div class="container cLientRegister">
+    <form method="post">
+        Name: <input type="text" value="" name="nameClient" placeholder="Name"/>
+        Email: <input type="text" value="" name="emailClient" placeholder="Email"/>
+        CPF: <input type="text" value="" name="cpf" placeholder="00.000.000" class="validate"/>
+        Password: <input type="text" value="" name="password" placeholder="*******" class="validate"/>
+        
+        <button class="grey darken-3 waves-light btn" type="submit" style="color: #ffca28;">Cadastrar</button>
+    </form> 
+</div>
+
+<!--JavaScript at end of body for optimized loading-->
+
+<script type="text/javascript" src="js/materialize.min.js"></script>
+<script type="text/javascript" src="mateialize/js/materialize.min.js"></script>
+
+</body>
+</html>
